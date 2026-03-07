@@ -1,12 +1,1318 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Melhor Oferta Imobiliária</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W.Gabassi Imóveis - Imóveis Retomados Caixa Econômica Federal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #c9a227;
+            --accent: #2c5282;
+            --light: #f7fafc;
+            --dark: #1a202c;
+            --gray: #718096;
+            --success: #38a169;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            height: 90vh;
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.9), rgba(44, 82, 130, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f7fafc" width="1200" height="800"/><path fill="%23e2e8f0" d="M0 400h1200v400H0z"/><rect x="100" y="200" width="200" height="400" fill="%23cbd5e0"/><rect x="350" y="150" width="250" height="450" fill="%23a0aec0"/><rect x="650" y="250" width="200" height="350" fill="%23718096"/><rect x="900" y="180" width="200" height="420" fill="%234a5568"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+            background-size: 100px 100px;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--secondary);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(201, 162, 39, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(201, 162, 39, 0.6);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Seção Credenciais */
+        .credentials {
+            padding: 5rem 2rem;
+            background: var(--light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .credential-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .credential-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .credential-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .credential-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Imóveis Section */
+        .properties {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .property-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .property-image {
+            height: 250px;
+            background: linear-gradient(45deg, #e2e8f0, #cbd5e0);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .property-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .property-card:hover .property-image img {
+            transform: scale(1.1);
+        }
+
+        .property-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 2;
+        }
+
+        .property-content {
+            padding: 1.5rem;
+        }
+
+        .property-price {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .property-title {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .property-location {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .property-features {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .property-features span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .property-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            flex: 1;
+            padding: 0.8rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+        }
+
+        .btn-whatsapp {
+            flex: 1;
+            padding: 0.8rem;
+            background: #25d366;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .btn-whatsapp:hover {
+            background: #128c7e;
+        }
+
+        /* Sobre Section */
+        .about {
+            padding: 5rem 2rem;
+            background: linear-gradient(to right, var(--light) 50%, white 50%);
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .experience-badge .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        /* Contato Section */
+        .contact {
+            padding: 5rem 2rem;
+            background: var(--primary);
+            color: white;
+        }
+
+        .contact-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-details {
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            color: var(--dark);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(201, 162, 39, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #a0aec0;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #4a5568;
+            padding-top: 2rem;
+            color: #718096;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        /* Modal para edição */
+        .edit-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .edit-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
+        /* Admin Panel */
+        .admin-panel {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            z-index: 999;
+            display: none;
+        }
+
+        .admin-panel.active {
+            display: block;
+        }
+
+        .admin-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 0.5rem;
+            width: 100%;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about {
+                background: var(--light);
+            }
+
+            .properties-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-badge {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Animações de scroll */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-  <!-- Replace with your static site HTML -->
-  <h1>Bem-vindo à Melhor Oferta Imobiliária</h1>
+
+    <!-- Navegação -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">W.<span>Gabassi</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#imoveis">Imóveis</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#credenciais">Credenciais</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Imóveis Retomados Caixa Econômica Federal</h1>
+            <p>Imobiliária credenciada e autorizada pela Caixa. Oportunidades únicas com segurança e transparência na Zona Sul de São Paulo.</p>
+            <a href="#imoveis" class="cta-button">Ver Imóveis Disponíveis</a>
+        </div>
+    </section>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5511989868050" class="whatsapp-float" target="_blank" title="Fale conosco pelo WhatsApp">
+        <span>📱</span>
+    </a>
+
+    <!-- Credenciais Section -->
+    <section class="credentials" id="credenciais">
+        <div class="container">
+            <div class="section-title scroll-reveal">
+                <h2>Credenciais e Autorizações</h2>
+                <p>Respaldado por instituições renomadas e certificações técnicas</p>
+            </div>
+            
+            <div class="credentials-grid">
+                <div class="credential-card scroll-reveal">
+                    <h3>🏛️ Caixa Econômica Federal</h3>
+                    <p>Imobiliária credenciada e autorizada para venda de imóveis retomados</p>
+                    <span class="badge">Credenciado</span>
+                </div>
+
+                <div class="credential-card scroll-reveal">
+                    <h3>⚖️ Tribunal de Justiça de SP</h3>
+                    <p>Perito Judicial atuante no TJSP</p>
+                    <span class="badge">Perito</span>
+                </div>
+
+                <div class="credential-card scroll-reveal">
+                    <h3>📋 CRECI/SP</h3>
+                    <p>Inscrição ativa nº 165.387-F (Física) e nº 43.479-J (Jurídica)</p>
+                    <span class="badge">Ativo</span>
+                </div>
+
+                <div class="credential-card scroll-reveal">
+                    <h3>🏢 CNAI</h3>
+                    <p>Conselho Nacional de Avaliação Imobiliária nº 20.350</p>
+                    <span class="badge">Registrado</span>
+                </div>
+
+                <div class="credential-card scroll-reveal">
+                    <h3>🤝 JUCON - Central 100</h3>
+                    <p>Conciliador Imobiliário credenciado</p>
+                    <span class="badge">Conciliador</span>
+                </div>
+
+                <div class="credential-card scroll-reveal">
+                    <h3>🏛️ PGFN</h3>
+                    <p>Procuradoria-Geral da Fazenda Nacional - Credenciado</p>
+                    <span class="badge">Oficial</span>
+                </div>
+
+                <div class="credential-card scroll-reveal">
+                    <h3>👥 Cooperação Técnica</h3>
+                    <p>Coordenador de grupo de avaliadores perante: TJSP, MPSP, DPSP, TRT2, TCESP</p>
+                    <span class="badge">Coordenador</span>
+                </div>
+
+                <div class="credential-card scroll-reveal">
+                    <h3>🎯 Especializações</h3>
+                    <p>Avaliador: Comercial, Renovatória Shopping Centers e Residencial</p>
+                    <span class="badge">Especialista</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Imóveis Section -->
+    <section class="properties" id="imoveis">
+        <div class="container">
+            <div class="section-title scroll-reveal">
+                <h2>Imóveis em Destaque</h2>
+                <p>Oportunidades exclusivas de imóveis retomados da Caixa Econômica Federal</p>
+            </div>
+
+            <div class="filter-bar scroll-reveal">
+                <button class="filter-btn active" onclick="filterProperties('all')">Todos</button>
+                <button class="filter-btn" onclick="filterProperties('residencial')">Residencial</button>
+                <button class="filter-btn" onclick="filterProperties('comercial')">Comercial</button>
+                <button class="filter-btn" onclick="filterProperties('terreno')">Terrenos</button>
+            </div>
+
+            <div class="properties-grid" id="propertiesGrid">
+                <!-- Imóvel 1 -->
+                <div class="property-card scroll-reveal" data-type="residencial">
+                    <div class="property-image">
+                        <div class="property-badge">Oportunidade</div>
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23e2e8f0' width='400' height='300'/><rect x='50' y='100' width='300' height='150' fill='%23cbd5e0'/><rect x='80' y='130' width='60' height='60' fill='%2394a3b8'/><rect x='160' y='130' width='60' height='60' fill='%2394a3b8'/><rect x='240' y='130' width='60' height='60' fill='%2394a3b8'/><polygon points='50,100 200,50 350,100' fill='%23a0aec0'/></svg>" alt="Apartamento">
+                    </div>
+                    <div class="property-content">
+                        <div class="property-price">R$ 450.000</div>
+                        <h3 class="property-title">Apartamento 2 Dormitórios</h3>
+                        <div class="property-location">📍 Vila Mariana, Zona Sul - SP</div>
+                        <div class="property-features">
+                            <span>🛏️ 2 Quartos</span>
+                            <span>🚗 1 Vaga</span>
+                            <span>📐 65m²</span>
+                        </div>
+                        <div class="property-actions">
+                            <button class="btn-primary" onclick="showDetails('apto1')">Detalhes</button>
+                            <a href="https://wa.me/5511989868050?text=Olá, tenho interesse no Apartamento 2 Dormitórios na Vila Mariana" class="btn-whatsapp" target="_blank">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Imóvel 2 -->
+                <div class="property-card scroll-reveal" data-type="comercial">
+                    <div class="property-image">
+                        <div class="property-badge">Leilão</div>
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23e2e8f0' width='400' height='300'/><rect x='50' y='50' width='300' height='200' fill='%23cbd5e0'/><rect x='100' y='150' width='80' height='100' fill='%23718096'/><rect x='220' y='150' width='80' height='100' fill='%23718096'/><text x='200' y='100' font-family='Arial' font-size='20' fill='%234a5568' text-anchor='middle'>SALA COMERCIAL</text></svg>" alt="Sala Comercial">
+                    </div>
+                    <div class="property-content">
+                        <div class="property-price">R$ 280.000</div>
+                        <h3 class="property-title">Sala Comercial Centro</h3>
+                        <div class="property-location">📍 Centro, São Paulo - SP</div>
+                        <div class="property-features">
+                            <span>🏢 Comercial</span>
+                            <span>🚗 1 Vaga</span>
+                            <span>📐 45m²</span>
+                        </div>
+                        <div class="property-actions">
+                            <button class="btn-primary" onclick="showDetails('sala1')">Detalhes</button>
+                            <a href="https://wa.me/5511989868050?text=Olá, tenho interesse na Sala Comercial no Centro" class="btn-whatsapp" target="_blank">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Imóvel 3 -->
+                <div class="property-card scroll-reveal" data-type="residencial">
+                    <div class="property-image">
+                        <div class="property-badge">Novo</div>
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23e2e8f0' width='400' height='300'/><rect x='80' y='120' width='240' height='130' fill='%23cbd5e0'/><rect x='100' y='150' width='50' height='50' fill='%2394a3b8'/><rect x='180' y='150' width='50' height='50' fill='%2394a3b8'/><rect x='260' y='150' width='50' height='50' fill='%2394a3b8'/><rect x='150' y='200' width='60' height='50' fill='%23718096'/><polygon points='80,120 200,80 320,120' fill='%23a0aec0'/></svg>" alt="Casa">
+                    </div>
+                    <div class="property-content">
+                        <div class="property-price">R$ 680.000</div>
+                        <h3 class="property-title">Casa Térrea 3 Dormitórios</h3>
+                        <div class="property-location">📍 Campo Belo, Zona Sul - SP</div>
+                        <div class="property-features">
+                            <span>🛏️ 3 Quartos</span>
+                            <span>🚗 2 Vagas</span>
+                            <span>📐 120m²</span>
+                        </div>
+                        <div class="property-actions">
+                            <button class="btn-primary" onclick="showDetails('casa1')">Detalhes</button>
+                            <a href="https://wa.me/5511989868050?text=Olá, tenho interesse na Casa Térrea no Campo Belo" class="btn-whatsapp" target="_blank">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Imóvel 4 -->
+                <div class="property-card scroll-reveal" data-type="terreno">
+                    <div class="property-image">
+                        <div class="property-badge">Investimento</div>
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%2387ceeb' width='400' height='300'/><rect x='50' y='200' width='300' height='100' fill='%2390ee90'/><rect x='100' y='150' width='60' height='50' fill='%238b4513'/><rect x='180' y='120' width='100' height='80' fill='%23d2691e'/><rect x='200' y='140' width='30' height='30' fill='%2387ceeb'/></svg>" alt="Terreno">
+                    </div>
+                    <div class="property-content">
+                        <div class="property-price">R$ 320.000</div>
+                        <h3 class="property-title">Terreno Residencial</h3>
+                        <div class="property-location">📍 Socorro, Zona Sul - SP</div>
+                        <div class="property-features">
+                            <span>🌳 Terreno</span>
+                            <span>📐 250m²</span>
+                            <span>🏗️ Zoneamento ZR2</span>
+                        </div>
+                        <div class="property-actions">
+                            <button class="btn-primary" onclick="showDetails('terreno1')">Detalhes</button>
+                            <a href="https://wa.me/5511989868050?text=Olá, tenho interesse no Terreno no Socorro" class="btn-whatsapp" target="_blank">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Imóvel 5 -->
+                <div class="property-card scroll-reveal" data-type="comercial">
+                    <div class="property-image">
+                        <div class="property-badge">Shopping</div>
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23f7fafc' width='400' height='300'/><rect x='50' y='100' width='300' height='150' fill='%23e2e8f0'/><text x='200' y='180' font-family='Arial' font-size='16' fill='%234a5568' text-anchor='middle'>LOJA SHOPPING CENTER</text><rect x='80' y='120' width='60' height='80' fill='%23cbd5e0'/><rect x='160' y='120' width='60' height='80' fill='%23cbd5e0'/><rect x='240' y='120' width='60' height='80' fill='%23cbd5e0'/></svg>" alt="Loja Shopping">
+                    </div>
+                    <div class="property-content">
+                        <div class="property-price">R$ 1.200.000</div>
+                        <h3 class="property-title">Loja em Shopping Center</h3>
+                        <div class="property-location">📍 Moema, Zona Sul - SP</div>
+                        <div class="property-features">
+                            <span>🛍️ Comercial</span>
+                            <span>📐 85m²</span>
+                            <span>🏢 Shopping</span>
+                        </div>
+                        <div class="property-actions">
+                            <button class="btn-primary" onclick="showDetails('loja1')">Detalhes</button>
+                            <a href="https://wa.me/5511989868050?text=Olá, tenho interesse na Loja no Shopping em Moema" class="btn-whatsapp" target="_blank">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Imóvel 6 -->
+                <div class="property-card scroll-reveal" data-type="residencial">
+                    <div class="property-image">
+                        <div class="property-badge">Desconto</div>
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23e2e8f0' width='400' height='300'/><rect x='100' y='80' width='200' height='170' fill='%23cbd5e0'/><rect x='120' y='100' width='40' height='40' fill='%2394a3b8'/><rect x='180' y='100' width='40' height='40' fill='%2394a3b8'/><rect x='240' y='100' width='40' height='40' fill='%2394a3b8'/><rect x='140' y='160' width='50' height='50' fill='%23718096'/><rect x='210' y='160' width='50' height='50' fill='%23718096'/><polygon points='100,80 200,40 300,80' fill='%23a0aec0'/></svg>" alt="Cobertura">
+                    </div>
+                    <div class="property-content">
+                        <div class="property-price">R$ 950.000</div>
+                        <h3 class="property-title">Cobertura Duplex</h3>
+                        <div class="property-location">📍 Brooklin, Zona Sul - SP</div>
+                        <div class="property-features">
+                            <span>🛏️ 3 Suítes</span>
+                            <span>🚗 2 Vagas</span>
+                            <span>📐 180m²</span>
+                        </div>
+                        <div class="property-actions">
+                            <button class="btn-primary" onclick="showDetails('cobertura1')">Detalhes</button>
+                            <a href="https://wa.me/5511989868050?text=Olá, tenho interesse na Cobertura Duplex no Brooklin" class="btn-whatsapp" target="_blank">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section class="about" id="sobre">
+        <div class="about-content">
+            <div class="about-text scroll-reveal">
+                <h2>Wagner Gabassi</h2>
+                <p><strong>Responsável Técnico - W.Gabassi Imóveis</strong></p>
+                <p>Com vasta experiência no mercado imobiliário e respaldo das principais instituições jurídicas e financeiras do país, oferecemos um serviço diferenciado na comercialização de imóveis retomados pela Caixa Econômica Federal.</p>
+                <p>Nossa atuação abrange desde a avaliação técnica especializada até a conciliação imobiliária, garantindo segurança jurídica e transparência em todas as transações.</p>
+                <p>Localização estratégica na Zona Sul de São Paulo, permitindo atendimento personalizado e ágil.</p>
+                <a href="#contato" class="cta-button" style="margin-top: 1rem;">Falar com Especialista</a>
+            </div>
+            <div class="about-image scroll-reveal">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 600'><rect fill='%23e2e8f0' width='500' height='600'/><circle cx='250' cy='200' r='100' fill='%23cbd5e0'/><rect x='150' y='320' width='200' height='280' fill='%23a0aec0'/><text x='250' y='450' font-family='Arial' font-size='20' fill='%234a5568' text-anchor='middle'>Foto Profissional</text><text x='250' y='480' font-family='Arial' font-size='16' fill='%23718096' text-anchor='middle'>Wagner Gabassi</text></svg>" alt="Wagner Gabassi">
+                <div class="experience-badge">
+                    <span class="number">15+</span>
+                    <span>Anos de<br>Experiência</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <section class="contact" id="contato">
+        <div class="contact-content">
+            <div class="contact-info scroll-reveal">
+                <h2>Entre em Contato</h2>
+                <p>Tire suas dúvidas sobre imóveis retomados, agende uma visita ou solicite uma avaliação. Estamos prontos para atender você com excelência.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <div>
+                            <strong>WhatsApp</strong><br>
+                            (11) 98986-8050
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <div>
+                            <strong>Endereço</strong><br>
+                            Zona Sul de São Paulo - SP
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span>✉️</span>
+                        <div>
+                            <strong>Email</strong><br>
+                            contato@wgabassi.com.br
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span>🏛️</span>
+                        <div>
+                            <strong>CRECI/SP</strong><br>
+                            165.387-F / 43.479-J
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="#" title="LinkedIn">in</a>
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="Facebook">f</a>
+                </div>
+            </div>
+
+            <div class="contact-form scroll-reveal">
+                <h3 style="margin-bottom: 1.5rem; color: var(--primary);">Solicite Informações</h3>
+                <form onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label>Nome Completo</label>
+                        <input type="text" required placeholder="Seu nome">
+                    </div>
+                    <div class="form-group">
+                        <label>Telefone / WhatsApp</label>
+                        <input type="tel" required placeholder="(11) 99999-9999">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" required placeholder="seu@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Tipo de Interesse</label>
+                        <select required>
+                            <option value="">Selecione...</option>
+                            <option value="residencial">Residencial</option>
+                            <option value="comercial">Comercial</option>
+                            <option value="terreno">Terreno</option>
+                            <option value="investimento">Investimento</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Mensagem</label>
+                        <textarea rows="4" placeholder="Descreva o que você procura..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>W.Gabassi Imóveis</h3>
+                <p>Imobiliária credenciada Caixa Econômica Federal especializada em imóveis retomados. Segurança, transparência e excelência técnica.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <p><a href="#home">Home</a></p>
+                <p><a href="#imoveis">Imóveis</a></p>
+                <p><a href="#sobre">Sobre</a></p>
+                <p><a href="#contato">Contato</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p>📱 (11) 98986-8050</p>
+                <p>📍 Zona Sul - SP</p>
+                <p>✉️ contato@wgabassi.com.br</p>
+            </div>
+            <div class="footer-section">
+                <h3>Registros</h3>
+                <p>CRECI/SP: 165.387-F</p>
+                <p>CRECI Jurídico: 43.479-J</p>
+                <p>CNAI: 20.350</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 W.Gabassi Imóveis. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal de Detalhes -->
+    <div class="edit-modal" id="detailsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Detalhes do Imóvel</h2>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div id="modalBody">
+                <!-- Conteúdo dinâmico -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animação de scroll
+        function reveal() {
+            var reveals = document.querySelectorAll(".scroll-reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+        reveal(); // Trigger once on load
+
+        // Filtro de propriedades
+        function filterProperties(type) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            const cards = document.querySelectorAll('.property-card');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            cards.forEach(card => {
+                if (type === 'all' || card.dataset.type === type) {
+                    card.style.display = 'block';
+                    setTimeout(() => card.style.opacity = '1', 10);
+                } else {
+                    card.style.opacity = '0';
+                    setTimeout(() => card.style.display = 'none', 300);
+                }
+            });
+        }
+
+        // Modal de detalhes
+        function showDetails(propertyId) {
+            const modal = document.getElementById('detailsModal');
+            const modalBody = document.getElementById('modalBody');
+            
+            const details = {
+                'apto1': {
+                    title: 'Apartamento 2 Dormitórios - Vila Mariana',
+                    content: `
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23e2e8f0' width='400' height='300'/><rect x='50' y='100' width='300' height='150' fill='%23cbd5e0'/></svg>" style="width:100%; border-radius:10px; margin-bottom:1rem;">
+                        <p><strong>Preço:</strong> R$ 450.000</p>
+                        <p><strong>Localização:</strong> Vila Mariana, Zona Sul - SP</p>
+                        <p><strong>Metragem:</strong> 65m² úteis</p>
+                        <p><strong>Dormitórios:</strong> 2 (1 suíte)</p>
+                        <p><strong>Banheiros:</strong> 2</p>
+                        <p><strong>Vagas:</strong> 1 coberta</p>
+                        <p><strong>Condomínio:</strong> R$ 580,00</p>
+                        <p><strong>IPTU:</strong> R$ 1.200,00/ano</p>
+                        <br>
+                        <p>Imóvel retomado pela Caixa Econômica Federal em excelente estado de conservação. Prédio com academia, piscina e salão de festas.</p>
+                        <br>
+                        <a href="https://wa.me/5511989868050?text=Olá, quero mais informações sobre o Apartamento na Vila Mariana (R$ 450.000)" class="btn-whatsapp" style="display:block; text-align:center;" target="_blank">Falar no WhatsApp</a>
+                    `
+                },
+                'sala1': {
+                    title: 'Sala Comercial - Centro',
+                    content: `
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23e2e8f0' width='400' height='300'/><rect x='50' y='50' width='300' height='200' fill='%23cbd5e0'/></svg>" style="width:100%; border-radius:10px; margin-bottom:1rem;">
+                        <p><strong>Preço:</strong> R$ 280.000</p>
+                        <p><strong>Localização:</strong> Centro, São Paulo - SP</p>
+                        <p><strong>Metragem:</strong> 45m²</p>
+                        <p><strong>Tipo:</strong> Comercial</p>
+                        <p><strong>Vagas:</strong> 1</p>
+                        <p><strong>Condomínio:</strong> R$ 350,00</p>
+                        <br>
+                        <p>Sala comercial em prédio empresarial, próximo ao metrô. Ideal para escritórios e clínicas.</p>
+                        <br>
+                        <a href="https://wa.me/5511989868050?text=Olá, quero mais informações sobre a Sala Comercial no Centro (R$ 280.000)" class="btn-whatsapp" style="display:block; text-align:center;" target="_blank">Falar no WhatsApp</a>
+                    `
+                }
+            };
+            
+            const detail = details[propertyId] || { 
+                title: 'Imóvel', 
+                content: '<p>Entre em contato para mais detalhes sobre este imóvel.</p><a href="https://wa.me/5511989868050" class="btn-whatsapp" style="display:block; text-align:center;" target="_blank">Falar no WhatsApp</a>' 
+            };
+            
+            document.getElementById('modalTitle').textContent = detail.title;
+            modalBody.innerHTML = detail.content;
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('detailsModal').classList.remove('active');
+        }
+
+        // Fechar modal ao clicar fora
+        window.onclick = function(event) {
+            const modal = document.getElementById('detailsModal');
+            if (event.target == modal) {
+                modal.classList.remove('active');
+            }
+        }
+
+        // Handle form submit
+        function handleSubmit(e) {
+            e.preventDefault();
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            e.target.reset();
+        }
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '70px';
+            navLinks.style.left = '0';
+            navLinks.style.right = '0';
+            navLinks.style.background = 'white';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.padding = '2rem';
+            navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+            }
+        });
+    </script>
 </body>
 </html>
+
