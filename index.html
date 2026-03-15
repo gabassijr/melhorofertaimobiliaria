@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>W.Gabassi Imóveis - Imóveis Retomados Caixa Econômica Federal</title>
+    <title>W.Gabassi - Perito Judicial e Negócios Imobiliários</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -147,7 +147,7 @@
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
+            max-width: 900px;
             padding: 0 2rem;
             animation: fadeInUp 1s ease;
         }
@@ -186,6 +186,9 @@
             font-weight: 600;
             transition: all 0.3s;
             box-shadow: 0 4px 15px rgba(201, 162, 39, 0.4);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
 
         .cta-button:hover {
@@ -223,10 +226,17 @@
             box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
         }
 
-        /* Seção Credenciais */
-        .credentials {
+        /* Seção Credenciais e Cases */
+        .credentials, .cases {
             padding: 5rem 2rem;
+        }
+        
+        .credentials {
             background: var(--light);
+        }
+
+        .cases {
+            background: white;
         }
 
         .container {
@@ -248,6 +258,8 @@
         .section-title p {
             color: var(--gray);
             font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .credentials-grid {
@@ -265,6 +277,11 @@
             border-left: 4px solid var(--secondary);
         }
 
+        .cases .credential-card {
+            border-left: 4px solid var(--primary);
+            background: var(--light);
+        }
+
         .credential-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.15);
@@ -273,7 +290,7 @@
         .credential-card h3 {
             color: var(--primary);
             margin-bottom: 0.5rem;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
         }
 
         .credential-card p {
@@ -290,11 +307,17 @@
             font-size: 0.8rem;
             margin-top: 0.5rem;
         }
+        
+        .badge.secondary {
+            background: var(--secondary);
+            color: var(--primary);
+            font-weight: 600;
+        }
 
         /* Imóveis Section */
         .properties {
             padding: 5rem 2rem;
-            background: white;
+            background: var(--light);
         }
 
         .filter-bar {
@@ -455,7 +478,7 @@
         /* Sobre Section */
         .about {
             padding: 5rem 2rem;
-            background: linear-gradient(to right, var(--light) 50%, white 50%);
+            background: linear-gradient(to right, white 50%, var(--light) 50%);
         }
 
         .about-content {
@@ -470,7 +493,15 @@
         .about-text h2 {
             font-size: 2.5rem;
             color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .about-text h4 {
+            color: var(--secondary);
+            font-size: 1.2rem;
             margin-bottom: 1.5rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
         }
 
         .about-text p {
@@ -625,6 +656,7 @@
             color: #a0aec0;
             text-decoration: none;
             line-height: 1.8;
+            font-size: 0.95rem;
         }
 
         .footer-section a:hover {
@@ -652,6 +684,9 @@
             align-items: center;
             justify-content: center;
             transition: all 0.3s;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
         }
 
         .social-links a:hover {
@@ -700,34 +735,6 @@
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--gray);
-        }
-
-        /* Admin Panel */
-        .admin-panel {
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            background: white;
-            padding: 1rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-            z-index: 999;
-            display: none;
-        }
-
-        .admin-panel.active {
-            display: block;
-        }
-
-        .admin-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-bottom: 0.5rem;
-            width: 100%;
         }
 
         /* Responsivo */
@@ -784,9 +791,10 @@
             <a href="#" class="logo">W.<span>Gabassi</span></a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#imoveis">Imóveis</a></li>
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#credenciais">Credenciais</a></li>
+                <li><a href="#cases">Cases</a></li>
+                <li><a href="#imoveis">Imóveis</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
             <div class="mobile-menu" onclick="toggleMenu()">
@@ -800,9 +808,9 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Imóveis Retomados Caixa Econômica Federal</h1>
-            <p>Imobiliária credenciada e autorizada pela Caixa. Oportunidades únicas com segurança e transparência na Zona Sul de São Paulo.</p>
-            <a href="#imoveis" class="cta-button">Ver Imóveis Disponíveis</a>
+            <h1>Avaliações Judiciais, Perícias e Negócios Imobiliários</h1>
+            <p>Especialista em resoluções de conflitos imobiliários, laudos periciais homologados e oportunidades de imóveis retomados pela Caixa Econômica Federal e PGFN.</p>
+            <a href="#imoveis" class="cta-button">Ver Imóveis Retomados</a>
         </div>
     </section>
 
@@ -811,61 +819,124 @@
         <span>📱</span>
     </a>
 
+    <!-- Sobre Section -->
+    <section class="about" id="sobre">
+        <div class="about-content">
+            <div class="about-text scroll-reveal">
+                <h2>Wagner Gabassi</h2>
+                <h4>Perito Judicial | Conciliador | Empresário | Gestor Imobiliário</h4>
+                <p>Profissional com mais de 24 anos de experiência nas áreas Comercial, Empresarial e Imobiliária, com atuação destacada em Avaliações Judiciais e Técnicas, Perícias, Conciliações, Locações e Vendas.</p>
+                <p>Possui sólido histórico de baixa impugnação e alto índice de homologações em laudos. Reconhecido pela sua atuação ética e precisão técnica, conduzindo conciliações eficazes no setor empresarial imobiliário para resolução de conflitos.</p>
+                <p>CEO da W. Gabassi Negócios Imobiliários, atuante como Conselheiro do CRECI e Coordenador no Grupo de Avaliadores do CRECISP junto a órgãos públicos como TJSP, MPSP, DPSP e TRT2.</p>
+                <a href="#contato" class="cta-button" style="margin-top: 1rem;">Solicitar Avaliação ou Assessoria</a>
+            </div>
+            <div class="about-image scroll-reveal">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 600'><rect fill='%23e2e8f0' width='500' height='600'/><circle cx='250' cy='200' r='100' fill='%23cbd5e0'/><rect x='150' y='320' width='200' height='280' fill='%23a0aec0'/><text x='250' y='450' font-family='Arial' font-size='20' fill='%234a5568' text-anchor='middle'>Foto Profissional</text><text x='250' y='480' font-family='Arial' font-size='16' fill='%23718096' text-anchor='middle'>Wagner Gabassi</text></svg>" alt="Wagner Gabassi">
+                <div class="experience-badge">
+                    <span class="number">24+</span>
+                    <span>Anos de<br>Experiência</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Credenciais Section -->
     <section class="credentials" id="credenciais">
         <div class="container">
             <div class="section-title scroll-reveal">
-                <h2>Credenciais e Autorizações</h2>
-                <p>Respaldado por instituições renomadas e certificações técnicas</p>
+                <h2>Credenciais e Atuações Ativas</h2>
+                <p>Respaldo por instituições renomadas, certificações técnicas rigorosas e constante atualização profissional.</p>
             </div>
             
             <div class="credentials-grid">
                 <div class="credential-card scroll-reveal">
-                    <h3>🏛️ Caixa Econômica Federal</h3>
-                    <p>Imobiliária credenciada e autorizada para venda de imóveis retomados</p>
-                    <span class="badge">Credenciado</span>
+                    <h3>⚖️ Perito Judicial</h3>
+                    <p>Cadastrado no Portal TJSP e nomeado recorrentemente em diversas comarcas do Estado de São Paulo.</p>
+                    <span class="badge">Ativo no TJSP</span>
                 </div>
 
                 <div class="credential-card scroll-reveal">
-                    <h3>⚖️ Tribunal de Justiça de SP</h3>
-                    <p>Perito Judicial atuante no TJSP</p>
-                    <span class="badge">Perito</span>
-                </div>
-
-                <div class="credential-card scroll-reveal">
-                    <h3>📋 CRECI/SP</h3>
-                    <p>Inscrição ativa nº 165.387-F (Física) e nº 43.479-J (Jurídica)</p>
-                    <span class="badge">Ativo</span>
-                </div>
-
-                <div class="credential-card scroll-reveal">
-                    <h3>🏢 CNAI</h3>
-                    <p>Conselho Nacional de Avaliação Imobiliária nº 20.350</p>
-                    <span class="badge">Registrado</span>
-                </div>
-
-                <div class="credential-card scroll-reveal">
-                    <h3>🤝 JUCON - Central 100</h3>
-                    <p>Conciliador Imobiliário credenciado</p>
+                    <h3>🤝 Conciliador JUCON</h3>
+                    <p>Junta de Conciliação CRECI/SP – Sede 100. Alto índice em solução de conflitos em audiências frutíferas.</p>
                     <span class="badge">Conciliador</span>
                 </div>
 
                 <div class="credential-card scroll-reveal">
-                    <h3>🏛️ PGFN</h3>
-                    <p>Procuradoria-Geral da Fazenda Nacional - Credenciado</p>
-                    <span class="badge">Oficial</span>
+                    <h3>🏛️ Caixa Econômica Federal</h3>
+                    <p>Credenciado imobiliário oficial dos imóveis em adjudicação da Caixa.</p>
+                    <span class="badge secondary">Autorizado Caixa</span>
                 </div>
 
                 <div class="credential-card scroll-reveal">
-                    <h3>👥 Cooperação Técnica</h3>
-                    <p>Coordenador de grupo de avaliadores perante: TJSP, MPSP, DPSP, TRT2, TCESP</p>
-                    <span class="badge">Coordenador</span>
+                    <h3>🏢 PGFN</h3>
+                    <p>Credenciado Imobiliário na Procuradoria Geral da Fazenda Nacional - Áreas para projetos de incorporação.</p>
+                    <span class="badge">Credenciado Oficial</span>
                 </div>
 
                 <div class="credential-card scroll-reveal">
-                    <h3>🎯 Especializações</h3>
-                    <p>Avaliador: Comercial, Renovatória Shopping Centers e Residencial</p>
-                    <span class="badge">Especialista</span>
+                    <h3>📋 CRECI & Conselheiro</h3>
+                    <p>Inscrição 165.387-F (Física), 43.479-J (Jurídica) e atuação como Conselheiro CRECI (2019/2021 e 2022/2024).</p>
+                    <span class="badge">Conselheiro</span>
+                </div>
+
+                <div class="credential-card scroll-reveal">
+                    <h3>📊 CNAI & Avaliador</h3>
+                    <p>CNAI nº 20.350 e Avaliador Imobiliário PROECCI - CRECI. Especialista na aplicação da ABNT NBR 14.653-2.</p>
+                    <span class="badge">Avaliador Técnico</span>
+                </div>
+
+                <div class="credential-card scroll-reveal">
+                    <h3>👥 Grupo de Avaliadores</h3>
+                    <p>Membro e Coordenador do Grupo de Avaliadores CRECISP perante órgãos públicos (TJSP, TRT2, MPSP, DPSP, TCESP).</p>
+                    <span class="badge">Coordenador Público</span>
+                </div>
+
+                <div class="credential-card scroll-reveal">
+                    <h3>🎓 Formação</h3>
+                    <p>Gestor Imobiliário (UNESA), cursando Direito (FMU), Curso de Perito (CRECISP), Mediação e Negociação (FIA).</p>
+                    <span class="badge">Gestor / Formação Téc.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases de Sucesso Section -->
+    <section class="cases" id="cases">
+        <div class="container">
+            <div class="section-title scroll-reveal">
+                <h2>Cases de Sucesso e Avaliações Relevantes</h2>
+                <p>Histórico comprovado de laudos técnicos de alto nível homologados nos mais rigorosos processos.</p>
+            </div>
+            
+            <div class="credentials-grid">
+                <div class="credential-card scroll-reveal">
+                    <h3>🍔 Burger King</h3>
+                    <p>Laudo de Avaliação Imobiliária homologado em Ação Renovatória referente a loja em Shopping Center (Morumbi Shopping).</p>
+                </div>
+
+                <div class="credential-card scroll-reveal">
+                    <h3>🍫 Cacau Noir</h3>
+                    <p>Laudo de Avaliação Imobiliária rigorosamente homologado em Ação Renovatória (Shopping Interlagos).</p>
+                </div>
+
+                <div class="credential-card scroll-reveal">
+                    <h3>⚖️ Prédio Público - TJSP</h3>
+                    <p>Avaliação da Torre Corporativa Fórum Nações Unidas (13.600 m²). Reconhecimento com certificação por excelência.</p>
+                </div>
+
+                <div class="credential-card scroll-reveal">
+                    <h3>🏢 Prédio Público - TRT 2ª Região</h3>
+                    <p>Avaliação de Prédio Público da Torre Corporativa do Fórum Trabalhista TRT2 (9.800 m²).</p>
+                </div>
+
+                <div class="credential-card scroll-reveal">
+                    <h3>🏛️ Área Pública - SP Urbanismo</h3>
+                    <p>Avaliação de terreno de 5.499 m² e testada de 129 metros para a Prefeitura de São Paulo. Certificação de excelência técnica.</p>
+                </div>
+
+                <div class="credential-card scroll-reveal">
+                    <h3>🏥 CREMESP</h3>
+                    <p>Avaliação de Salas Comerciais para o Conselho Regional de Medicina do Estado de São Paulo.</p>
                 </div>
             </div>
         </div>
@@ -875,22 +946,22 @@
     <section class="properties" id="imoveis">
         <div class="container">
             <div class="section-title scroll-reveal">
-                <h2>Imóveis em Destaque</h2>
-                <p>Oportunidades exclusivas de imóveis retomados da Caixa Econômica Federal</p>
+                <h2>Imóveis Retomados e Investimentos</h2>
+                <p>Oportunidades exclusivas da Caixa Econômica Federal e da PGFN</p>
             </div>
 
             <div class="filter-bar scroll-reveal">
                 <button class="filter-btn active" onclick="filterProperties('all')">Todos</button>
                 <button class="filter-btn" onclick="filterProperties('residencial')">Residencial</button>
                 <button class="filter-btn" onclick="filterProperties('comercial')">Comercial</button>
-                <button class="filter-btn" onclick="filterProperties('terreno')">Terrenos</button>
+                <button class="filter-btn" onclick="filterProperties('terreno')">Terrenos / Incorporação</button>
             </div>
 
             <div class="properties-grid" id="propertiesGrid">
-                <!-- Imóvel 1 -->
+                <!-- Imóvel Original 1 -->
                 <div class="property-card scroll-reveal" data-type="residencial">
                     <div class="property-image">
-                        <div class="property-badge">Oportunidade</div>
+                        <div class="property-badge">Oportunidade Caixa</div>
                         <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23e2e8f0' width='400' height='300'/><rect x='50' y='100' width='300' height='150' fill='%23cbd5e0'/><rect x='80' y='130' width='60' height='60' fill='%2394a3b8'/><rect x='160' y='130' width='60' height='60' fill='%2394a3b8'/><rect x='240' y='130' width='60' height='60' fill='%2394a3b8'/><polygon points='50,100 200,50 350,100' fill='%23a0aec0'/></svg>" alt="Apartamento">
                     </div>
                     <div class="property-content">
@@ -909,137 +980,270 @@
                     </div>
                 </div>
 
-                <!-- Imóvel 2 -->
+                <!-- Imóvel Original 2 -->
                 <div class="property-card scroll-reveal" data-type="comercial">
                     <div class="property-image">
-                        <div class="property-badge">Leilão</div>
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23e2e8f0' width='400' height='300'/><rect x='50' y='50' width='300' height='200' fill='%23cbd5e0'/><rect x='100' y='150' width='80' height='100' fill='%23718096'/><rect x='220' y='150' width='80' height='100' fill='%23718096'/><text x='200' y='100' font-family='Arial' font-size='20' fill='%234a5568' text-anchor='middle'>SALA COMERCIAL</text></svg>" alt="Sala Comercial">
+                        <div class="property-badge">Imóvel Caixa</div>
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23e2e8f0' width='400' height='300'/><rect x='50' y='50' width='300' height='200' fill='%23cbd5e0'/><rect x='100' y='150' width='80' height='100' fill='%23718096'/><rect x='220' y='150' width='80' height='100' fill='%23718096'/><text x='200' y='100' font-family='Arial' font-size='20' fill='%234a5568' text-anchor='middle'>EDIFICIO COMERCIAL</text></svg>" alt="Edifício Camburi">
                     </div>
                     <div class="property-content">
-                        <div class="property-price">R$ 280.000</div>
-                        <h3 class="property-title">Sala Comercial Centro</h3>
-                        <div class="property-location">📍 Centro, São Paulo - SP</div>
+                        <div class="property-price">R$ 934.216</div>
+                        <h3 class="property-title">Imóvel Comercial - Ed. Camburi</h3>
+                        <div class="property-location">📍 Av. 9 de Julho, Jd. Paulista - SP</div>
                         <div class="property-features">
                             <span>🏢 Comercial</span>
-                            <span>🚗 1 Vaga</span>
-                            <span>📐 45m²</span>
+                            <span>🚗 4 Vagas</span>
+                            <span>📐 169m² priv.</span>
                         </div>
                         <div class="property-actions">
                             <button class="btn-primary" onclick="showDetails('sala1')">Detalhes</button>
-                            <a href="https://wa.me/5511989868050?text=Olá, tenho interesse na Sala Comercial no Centro" class="btn-whatsapp" target="_blank">WhatsApp</a>
+                            <a href="https://wa.me/5511989868050?text=Olá, tenho interesse no Ed. Comercial Camburi" class="btn-whatsapp" target="_blank">WhatsApp</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Imóvel 3 -->
-                <div class="property-card scroll-reveal" data-type="residencial">
-                    <div class="property-image">
-                        <div class="property-badge">Novo</div>
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23e2e8f0' width='400' height='300'/><rect x='80' y='120' width='240' height='130' fill='%23cbd5e0'/><rect x='100' y='150' width='50' height='50' fill='%2394a3b8'/><rect x='180' y='150' width='50' height='50' fill='%2394a3b8'/><rect x='260' y='150' width='50' height='50' fill='%2394a3b8'/><rect x='150' y='200' width='60' height='50' fill='%23718096'/><polygon points='80,120 200,80 320,120' fill='%23a0aec0'/></svg>" alt="Casa">
-                    </div>
-                    <div class="property-content">
-                        <div class="property-price">R$ 680.000</div>
-                        <h3 class="property-title">Casa Térrea 3 Dormitórios</h3>
-                        <div class="property-location">📍 Campo Belo, Zona Sul - SP</div>
-                        <div class="property-features">
-                            <span>🛏️ 3 Quartos</span>
-                            <span>🚗 2 Vagas</span>
-                            <span>📐 120m²</span>
-                        </div>
-                        <div class="property-actions">
-                            <button class="btn-primary" onclick="showDetails('casa1')">Detalhes</button>
-                            <a href="https://wa.me/5511989868050?text=Olá, tenho interesse na Casa Térrea no Campo Belo" class="btn-whatsapp" target="_blank">WhatsApp</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Imóvel 4 -->
+                <!-- Imóvel Original 3 -->
                 <div class="property-card scroll-reveal" data-type="terreno">
                     <div class="property-image">
-                        <div class="property-badge">Investimento</div>
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%2387ceeb' width='400' height='300'/><rect x='50' y='200' width='300' height='100' fill='%2390ee90'/><rect x='100' y='150' width='60' height='50' fill='%238b4513'/><rect x='180' y='120' width='100' height='80' fill='%23d2691e'/><rect x='200' y='140' width='30' height='30' fill='%2387ceeb'/></svg>" alt="Terreno">
+                        <div class="property-badge">Investimento PGFN</div>
+                        <img src="https://comprei.pgfn.gov.br/gateway/imagem/anuncio/215958" alt="Terreno">
                     </div>
                     <div class="property-content">
-                        <div class="property-price">R$ 320.000</div>
-                        <h3 class="property-title">Terreno Residencial</h3>
-                        <div class="property-location">📍 Socorro, Zona Sul - SP</div>
+                        <div class="property-price">R$ 37.429.000</div>
+                        <h3 class="property-title">Área para Incorporação PGFN</h3>
+                        <div class="property-location">📍 São Paulo - SP</div>
                         <div class="property-features">
-                            <span>🌳 Terreno</span>
-                            <span>📐 250m²</span>
-                            <span>🏗️ Zoneamento ZR2</span>
+                            <span>🌳 Terreno Urb.</span>
+                            <span>📐 21.388m²</span>
+                            <span>🏗️ Incorporação</span>
                         </div>
                         <div class="property-actions">
                             <button class="btn-primary" onclick="showDetails('terreno1')">Detalhes</button>
-                            <a href="https://wa.me/5511989868050?text=Olá, tenho interesse no Terreno no Socorro" class="btn-whatsapp" target="_blank">WhatsApp</a>
+                            <a href="https://wa.me/5511989868050?text=Olá, tenho interesse na área de incorporação da PGFN" class="btn-whatsapp" target="_blank">WhatsApp</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Imóvel 5 -->
+                <!-- NOVOS IMÓVEIS PGFN -->
+                <div class="property-card scroll-reveal" data-type="terreno">
+                    <div class="property-image">
+                        <div class="property-badge">PGFN - 50% OFF</div>
+                        <img src="https://comprei.pgfn.gov.br/gateway/imagem/anuncio/191507" alt="Terreno Tucuruvi">
+
+                    </div>
+                    <div class="property-content">
+                        <div class="property-price">R$ 2.523.131</div>
+                        <h3 class="property-title">Terreno p/ Incorporação</h3>
+                        <div class="property-location">📍 Tucuruvi - São Paulo/SP</div>
+                        <div class="property-features">
+                            <span>🌳 Terreno</span>
+                            <span>📐 4.750m²</span>
+                            <span>🏗️ Incorporação</span>
+                        </div>
+                        <div class="property-actions">
+                            <button class="btn-primary" onclick="showDetails('pgfn1')">Detalhes</button>
+                            <a href="https://wa.me/5511989868050?text=Olá, tenho interesse no Terreno no Tucuruvi" class="btn-whatsapp" target="_blank">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-card scroll-reveal" data-type="terreno">
+                    <div class="property-image">
+                        <div class="property-badge">PGFN - 50% OFF</div>
+                        <img src="https://comprei.pgfn.gov.br/gateway/imagem/anuncio/192193" alt="Terreno Sorocaba">
+
+                    </div>
+                    <div class="property-content">
+                        <div class="property-price">R$ 992.210</div>
+                        <h3 class="property-title">Terreno Maria Antonia Prado</h3>
+                        <div class="property-location">📍 Sorocaba - SP</div>
+                        <div class="property-features">
+                            <span>🌳 Terreno</span>
+                            <span>📐 1.000m²</span>
+                            <span>🏗️ Oportunidade</span>
+                        </div>
+                        <div class="property-actions">
+                            <button class="btn-primary" onclick="showDetails('pgfn2')">Detalhes</button>
+                            <a href="https://wa.me/5511989868050?text=Olá, tenho interesse no Terreno em Sorocaba" class="btn-whatsapp" target="_blank">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-card scroll-reveal" data-type="terreno">
+                    <div class="property-image">
+                        <div class="property-badge">PGFN - Avaliação</div>
+                        <img src="https://comprei.pgfn.gov.br/gateway/imagem/anuncio/172801" alt="Terreno Industrial">
+
+                    </div>
+                    <div class="property-content">
+                        <div class="property-price">Sob Consulta</div>
+                        <h3 class="property-title">Terreno Ind. Vila Independência</h3>
+                        <div class="property-location">📍 Vila Independência - São Paulo/SP</div>
+                        <div class="property-features">
+                            <span>🏭 Terreno/Ind.</span>
+                            <span>📐 6.906m²</span>
+                        </div>
+                        <div class="property-actions">
+                            <button class="btn-primary" onclick="showDetails('pgfn3')">Detalhes</button>
+                            <a href="https://wa.me/5511989868050?text=Olá, tenho interesse no Terreno na V. Independência" class="btn-whatsapp" target="_blank">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-card scroll-reveal" data-type="terreno">
+                    <div class="property-image">
+                        <div class="property-badge">PGFN - 50% OFF</div>
+                       <img src="https://comprei.pgfn.gov.br/gateway/imagem/anuncio/198817" alt="Prédio Capão">
+
+                    </div>
+                    <div class="property-content">
+                        <div class="property-price">R$ 3.864.750</div>
+                        <h3 class="property-title">Prédio / Terreno Capão Redondo</h3>
+                        <div class="property-location">📍 Capão Redondo - São Paulo/SP</div>
+                        <div class="property-features">
+                            <span>🏢 Comercial/Terreno</span>
+                            <span>📐 5.153m²</span>
+                        </div>
+                        <div class="property-actions">
+                            <button class="btn-primary" onclick="showDetails('pgfn4')">Detalhes</button>
+                            <a href="https://wa.me/5511989868050?text=Olá, tenho interesse no Terreno no Capão Redondo" class="btn-whatsapp" target="_blank">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-card scroll-reveal" data-type="terreno">
+                    <div class="property-image">
+                        <div class="property-badge">PGFN - 50% OFF</div>
+                        <img src="https://comprei.pgfn.gov.br/gateway/imagem/anuncio/171858" alt="Galpão Guamiranga">
+
+                    </div>
+                    <div class="property-content">
+                        <div class="property-price">R$ 3.236.400</div>
+                        <h3 class="property-title">Galpão / Terreno Guamiranga</h3>
+                        <div class="property-location">📍 V. Independência - São Paulo/SP</div>
+                        <div class="property-features">
+                            <span>🏭 Galpão</span>
+                            <span>📐 3.236m²</span>
+                        </div>
+                        <div class="property-actions">
+                            <button class="btn-primary" onclick="showDetails('pgfn5')">Detalhes</button>
+                            <a href="https://wa.me/5511989868050?text=Olá, tenho interesse no Galpão na Rua Guamiranga" class="btn-whatsapp" target="_blank">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="property-card scroll-reveal" data-type="comercial">
                     <div class="property-image">
-                        <div class="property-badge">Shopping</div>
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23f7fafc' width='400' height='300'/><rect x='50' y='100' width='300' height='150' fill='%23e2e8f0'/><text x='200' y='180' font-family='Arial' font-size='16' fill='%234a5568' text-anchor='middle'>LOJA SHOPPING CENTER</text><rect x='80' y='120' width='60' height='80' fill='%23cbd5e0'/><rect x='160' y='120' width='60' height='80' fill='%23cbd5e0'/><rect x='240' y='120' width='60' height='80' fill='%23cbd5e0'/></svg>" alt="Loja Shopping">
+                        <div class="property-badge">PGFN - 50% OFF</div>
+                        <img src="https://comprei.pgfn.gov.br/gateway/imagem/anuncio/200368" alt="Sala Centro">
+
                     </div>
                     <div class="property-content">
-                        <div class="property-price">R$ 1.200.000</div>
-                        <h3 class="property-title">Loja em Shopping Center</h3>
-                        <div class="property-location">📍 Moema, Zona Sul - SP</div>
+                        <div class="property-price">R$ 835.763</div>
+                        <h3 class="property-title">Unidade Autônoma - Centro</h3>
+                        <div class="property-location">📍 Av. São João - Centro, SP</div>
                         <div class="property-features">
-                            <span>🛍️ Comercial</span>
-                            <span>📐 85m²</span>
-                            <span>🏢 Shopping</span>
+                            <span>🏢 Comercial</span>
+                            <span>📐 48,31m²</span>
                         </div>
                         <div class="property-actions">
-                            <button class="btn-primary" onclick="showDetails('loja1')">Detalhes</button>
-                            <a href="https://wa.me/5511989868050?text=Olá, tenho interesse na Loja no Shopping em Moema" class="btn-whatsapp" target="_blank">WhatsApp</a>
+                            <button class="btn-primary" onclick="showDetails('pgfn6')">Detalhes</button>
+                            <a href="https://wa.me/5511989868050?text=Olá, tenho interesse na sala comercial no Centro" class="btn-whatsapp" target="_blank">WhatsApp</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Imóvel 6 -->
-                <div class="property-card scroll-reveal" data-type="residencial">
+                <div class="property-card scroll-reveal" data-type="comercial">
                     <div class="property-image">
-                        <div class="property-badge">Desconto</div>
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23e2e8f0' width='400' height='300'/><rect x='100' y='80' width='200' height='170' fill='%23cbd5e0'/><rect x='120' y='100' width='40' height='40' fill='%2394a3b8'/><rect x='180' y='100' width='40' height='40' fill='%2394a3b8'/><rect x='240' y='100' width='40' height='40' fill='%2394a3b8'/><rect x='140' y='160' width='50' height='50' fill='%23718096'/><rect x='210' y='160' width='50' height='50' fill='%23718096'/><polygon points='100,80 200,40 300,80' fill='%23a0aec0'/></svg>" alt="Cobertura">
+                        <div class="property-badge">PGFN - 50% OFF</div>
+                        <img src="https://comprei.pgfn.gov.br/gateway/imagem/anuncio/201776" alt="Prédio Paissandu">
+
                     </div>
                     <div class="property-content">
-                        <div class="property-price">R$ 950.000</div>
-                        <h3 class="property-title">Cobertura Duplex</h3>
-                        <div class="property-location">📍 Brooklin, Zona Sul - SP</div>
+                        <div class="property-price">R$ 15.200.000</div>
+                        <h3 class="property-title">Lajes Corporativas (1º ao 6º)</h3>
+                        <div class="property-location">📍 Lgo do Paissandu - Centro, SP</div>
                         <div class="property-features">
-                            <span>🛏️ 3 Suítes</span>
-                            <span>🚗 2 Vagas</span>
-                            <span>📐 180m²</span>
+                            <span>🏢 Prédio Inteiro</span>
+                            <span>🏗️ Multi-andares</span>
                         </div>
                         <div class="property-actions">
-                            <button class="btn-primary" onclick="showDetails('cobertura1')">Detalhes</button>
-                            <a href="https://wa.me/5511989868050?text=Olá, tenho interesse na Cobertura Duplex no Brooklin" class="btn-whatsapp" target="_blank">WhatsApp</a>
+                            <button class="btn-primary" onclick="showDetails('pgfn7')">Detalhes</button>
+                            <a href="https://wa.me/5511989868050?text=Olá, tenho interesse no prédio do Lgo do Paissandu" class="btn-whatsapp" target="_blank">WhatsApp</a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Sobre Section -->
-    <section class="about" id="sobre">
-        <div class="about-content">
-            <div class="about-text scroll-reveal">
-                <h2>Wagner Gabassi</h2>
-                <p><strong>Responsável Técnico - W.Gabassi Imóveis</strong></p>
-                <p>Com vasta experiência no mercado imobiliário e respaldo das principais instituições jurídicas e financeiras do país, oferecemos um serviço diferenciado na comercialização de imóveis retomados pela Caixa Econômica Federal.</p>
-                <p>Nossa atuação abrange desde a avaliação técnica especializada até a conciliação imobiliária, garantindo segurança jurídica e transparência em todas as transações.</p>
-                <p>Localização estratégica na Zona Sul de São Paulo, permitindo atendimento personalizado e ágil.</p>
-                <a href="#contato" class="cta-button" style="margin-top: 1rem;">Falar com Especialista</a>
-            </div>
-            <div class="about-image scroll-reveal">
-                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 600'><rect fill='%23e2e8f0' width='500' height='600'/><circle cx='250' cy='200' r='100' fill='%23cbd5e0'/><rect x='150' y='320' width='200' height='280' fill='%23a0aec0'/><text x='250' y='450' font-family='Arial' font-size='20' fill='%234a5568' text-anchor='middle'>Foto Profissional</text><text x='250' y='480' font-family='Arial' font-size='16' fill='%23718096' text-anchor='middle'>Wagner Gabassi</text></svg>" alt="Wagner Gabassi">
-                <div class="experience-badge">
-                    <span class="number">15+</span>
-                    <span>Anos de<br>Experiência</span>
+                <div class="property-card scroll-reveal" data-type="terreno">
+                    <div class="property-image">
+                        <div class="property-badge">PGFN - 50% OFF</div>
+                        <img src="https://comprei.pgfn.gov.br/gateway/imagem/anuncio/190999" alt="Terreno Araraquara">
+
+                    </div>
+                    <div class="property-content">
+                        <div class="property-price">R$ 2.984.175</div>
+                        <h3 class="property-title">Imóvel Comercial / Terreno</h3>
+                        <div class="property-location">📍 Araraquara - SP</div>
+                        <div class="property-features">
+                            <span>🌳 Terreno</span>
+                            <span>📐 2.617m²</span>
+                        </div>
+                        <div class="property-actions">
+                            <button class="btn-primary" onclick="showDetails('pgfn8')">Detalhes</button>
+                            <a href="https://wa.me/5511989868050?text=Olá, tenho interesse no terreno em Araraquara" class="btn-whatsapp" target="_blank">WhatsApp</a>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="property-card scroll-reveal" data-type="terreno">
+                    <div class="property-image">
+                        <div class="property-badge">PGFN - 50% OFF</div>
+                       <img src="https://comprei.pgfn.gov.br/gateway/imagem/anuncio/192178" alt="Galpão Bady Bassitt">
+
+                    </div>
+                    <div class="property-content">
+                        <div class="property-price">R$ 9.088.205</div>
+                        <h3 class="property-title">Imóvel Industrial / Galpão</h3>
+                        <div class="property-location">📍 Bady Bassitt - SP</div>
+                        <div class="property-features">
+                            <span>🏭 Galpão Ind.</span>
+                            <span>📐 27.727m²</span>
+                        </div>
+                        <div class="property-actions">
+                            <button class="btn-primary" onclick="showDetails('pgfn9')">Detalhes</button>
+                            <a href="https://wa.me/5511989868050?text=Olá, tenho interesse no Galpão em Bady Bassitt" class="btn-whatsapp" target="_blank">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-card scroll-reveal" data-type="terreno">
+                    <div class="property-image">
+                        <div class="property-badge">PGFN - 50% OFF</div>
+                        <img src="https://comprei.pgfn.gov.br/gateway/imagem/anuncio/170268" alt="Terreno Piracicaba">
+
+                    </div>
+                    <div class="property-content">
+                        <div class="property-price">R$ 7.945.844</div>
+                        <h3 class="property-title">Terreno Comercial / Empresarial</h3>
+                        <div class="property-location">📍 Nova Piracicaba - SP</div>
+                        <div class="property-features">
+                            <span>🌳 Terreno Com.</span>
+                            <span>📐 5.074m²</span>
+                        </div>
+                        <div class="property-actions">
+                            <button class="btn-primary" onclick="showDetails('pgfn10')">Detalhes</button>
+                            <a href="https://wa.me/5511989868050?text=Olá, tenho interesse no terreno em Piracicaba" class="btn-whatsapp" target="_blank">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- End properties-grid -->
+
+            <!-- Botão Ver Mais Imóveis -->
+            <div id="loadMoreContainer" style="text-align: center; margin-top: 3rem; display: none;">
+                <button onclick="loadMoreProperties()" class="cta-button" style="background: var(--primary); color: white;">Ver mais imóveis</button>
             </div>
+
         </div>
     </section>
 
@@ -1048,48 +1252,50 @@
         <div class="contact-content">
             <div class="contact-info scroll-reveal">
                 <h2>Entre em Contato</h2>
-                <p>Tire suas dúvidas sobre imóveis retomados, agende uma visita ou solicite uma avaliação. Estamos prontos para atender você com excelência.</p>
+                <p>Agende uma avaliação do seu patrimônio, solicite assessoria para imóveis em leilão/adjudicação ou entre em contato para conciliações e parcerias técnicas presenciais ou on-line.</p>
                 
                 <div class="contact-details">
                     <div class="contact-item">
                         <span>📱</span>
                         <div>
-                            <strong>WhatsApp</strong><br>
-                            (11) 98986-8050
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <span>📍</span>
-                        <div>
-                            <strong>Endereço</strong><br>
-                            Zona Sul de São Paulo - SP
+                            <strong>WhatsApp / Telefone</strong><br>
+                            +55 (11) 98986-8050
                         </div>
                     </div>
                     <div class="contact-item">
                         <span>✉️</span>
                         <div>
                             <strong>Email</strong><br>
-                            contato@wgabassi.com.br
+                            peritogabassi@gmail.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <div>
+                            <strong>W. Gabassi Negócios Imobiliários</strong><br>
+                            Rua Ricardo Martinez Lourente, 33<br>
+                            Jurubatuba, Santo Amaro - São Paulo/SP<br>
+                            CEP 04696-190
                         </div>
                     </div>
                     <div class="contact-item">
                         <span>🏛️</span>
                         <div>
-                            <strong>CRECI/SP</strong><br>
-                            165.387-F / 43.479-J
+                            <strong>CRECI / CNAI</strong><br>
+                            Física: 165.387-F | Jurídica: 43.479-J<br>
+                            CNAI: 20.350
                         </div>
                     </div>
                 </div>
 
                 <div class="social-links">
-                    <a href="#" title="LinkedIn">in</a>
-                    <a href="#" title="Instagram">📷</a>
-                    <a href="#" title="Facebook">f</a>
+                    <a href="https://instagram.com/peritogabassi" target="_blank" title="Instagram">📷</a>
+                    <a href="https://gabassiimoveis.com.br" target="_blank" title="Website">🌐</a>
                 </div>
             </div>
 
             <div class="contact-form scroll-reveal">
-                <h3 style="margin-bottom: 1.5rem; color: var(--primary);">Solicite Informações</h3>
+                <h3 style="margin-bottom: 1.5rem; color: var(--primary);">Solicite Informações ou Assessoria</h3>
                 <form onsubmit="handleSubmit(event)">
                     <div class="form-group">
                         <label>Nome Completo</label>
@@ -1104,18 +1310,19 @@
                         <input type="email" required placeholder="seu@email.com">
                     </div>
                     <div class="form-group">
-                        <label>Tipo de Interesse</label>
+                        <label>Assunto</label>
                         <select required>
                             <option value="">Selecione...</option>
-                            <option value="residencial">Residencial</option>
-                            <option value="comercial">Comercial</option>
-                            <option value="terreno">Terreno</option>
-                            <option value="investimento">Investimento</option>
+                            <option value="avaliacao">Avaliação Judicial / Técnica</option>
+                            <option value="leilao">Assessoria em Leilões e Caixa Econômica</option>
+                            <option value="imoveis">Compra e Venda de Imóveis</option>
+                            <option value="conciliacao">Conciliação Imobiliária</option>
+                            <option value="parceria">Parceria Técnica / Outros</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Mensagem</label>
-                        <textarea rows="4" placeholder="Descreva o que você procura..."></textarea>
+                        <textarea rows="4" placeholder="Como podemos ajudar o seu negócio ou patrimônio?"></textarea>
                     </div>
                     <button type="submit" class="submit-btn">Enviar Mensagem</button>
                 </form>
@@ -1127,31 +1334,34 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>W.Gabassi Imóveis</h3>
-                <p>Imobiliária credenciada Caixa Econômica Federal especializada em imóveis retomados. Segurança, transparência e excelência técnica.</p>
+                <h3>W.Gabassi Negócios Imobiliários</h3>
+                <p>Especialistas em Avaliações Judiciais, Conciliações, Administração Imobiliária e negócios com imóveis retomados pela Caixa e PGFN. Segurança jurídica, transparência e precisão técnica.</p>
+                <p style="margin-top:0.5rem">CNPJ: 50.159.365/0001-31</p>
             </div>
             <div class="footer-section">
                 <h3>Links Rápidos</h3>
                 <p><a href="#home">Home</a></p>
-                <p><a href="#imoveis">Imóveis</a></p>
-                <p><a href="#sobre">Sobre</a></p>
+                <p><a href="#sobre">Perfil Profissional</a></p>
+                <p><a href="#credenciais">Credenciais</a></p>
+                <p><a href="#cases">Cases de Sucesso</a></p>
                 <p><a href="#contato">Contato</a></p>
             </div>
             <div class="footer-section">
                 <h3>Contato</h3>
-                <p>📱 (11) 98986-8050</p>
-                <p>📍 Zona Sul - SP</p>
-                <p>✉️ contato@wgabassi.com.br</p>
+                <p>📱 +55 (11) 98986-8050</p>
+                <p>📍 R. Ricardo Martinez Lourente, 33 - São Paulo/SP</p>
+                <p>✉️ peritogabassi@gmail.com</p>
+                <p>🌐 gabassiimoveis.com.br</p>
             </div>
             <div class="footer-section">
-                <h3>Registros</h3>
-                <p>CRECI/SP: 165.387-F</p>
-                <p>CRECI Jurídico: 43.479-J</p>
-                <p>CNAI: 20.350</p>
+                <h3>Registros Oficiais</h3>
+                <p>CRECI/SP Físico: 165.387-F</p>
+                <p>CRECI/SP Jurídico: 43.479-J</p>
+                <p>CNAI (Avaliador): 20.350</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 W.Gabassi Imóveis. Todos os direitos reservados.</p>
+            <p>&copy; 2024 W.Gabassi Negócios Imobiliários. Todos os direitos reservados.</p>
         </div>
     </footer>
 
@@ -1159,7 +1369,7 @@
     <div class="edit-modal" id="detailsModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 id="modalTitle">Detalhes do Imóvel</h2>
+                <h2 id="modalTitle">Detalhes da Oportunidade</h2>
                 <button class="close-modal" onclick="closeModal()">&times;</button>
             </div>
             <div id="modalBody">
@@ -1183,26 +1393,74 @@
         }
 
         window.addEventListener("scroll", reveal);
-        reveal(); // Trigger once on load
 
-        // Filtro de propriedades
-        function filterProperties(type) {
-            const buttons = document.querySelectorAll('.filter-btn');
+        // Sistema de Paginação e Filtros
+        let currentLimit = 7;
+        let currentFilter = 'all';
+
+        function applyFilterAndLimit() {
             const cards = document.querySelectorAll('.property-card');
-            
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            let visibleCount = 0;
+            let matchCount = 0;
             
             cards.forEach(card => {
-                if (type === 'all' || card.dataset.type === type) {
-                    card.style.display = 'block';
-                    setTimeout(() => card.style.opacity = '1', 10);
+                const matchesFilter = currentFilter === 'all' || card.dataset.type === currentFilter;
+                
+                if (matchesFilter) {
+                    matchCount++;
+                    if (visibleCount < currentLimit) {
+                        card.style.display = 'block';
+                        setTimeout(() => card.style.opacity = '1', 10);
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                        card.style.opacity = '0';
+                    }
                 } else {
+                    card.style.display = 'none';
                     card.style.opacity = '0';
-                    setTimeout(() => card.style.display = 'none', 300);
                 }
             });
+
+            // Controla a exibição do botão "Ver mais"
+            const loadMoreBtnContainer = document.getElementById('loadMoreContainer');
+            if(loadMoreBtnContainer) {
+                if (visibleCount >= matchCount) {
+                    loadMoreBtnContainer.style.display = 'none';
+                } else {
+                    loadMoreBtnContainer.style.display = 'block';
+                }
+            }
+            
+            // Re-trigger scroll reveal para os novos itens aparecerem com animação se estiverem na tela
+            reveal();
         }
+
+        function filterProperties(type) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                if(btn.getAttribute('onclick').includes(type)) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            currentFilter = type;
+            currentLimit = 7; // Reseta para exibir apenas 7 sempre que trocar a aba
+            applyFilterAndLimit();
+        }
+
+        function loadMoreProperties() {
+            currentLimit += 5; // Aumenta o limite de 5 em 5
+            applyFilterAndLimit();
+        }
+
+        // Executa a limitação e o reveal inicial logo que a página carregar
+        document.addEventListener("DOMContentLoaded", function() {
+            applyFilterAndLimit();
+            reveal(); 
+        });
 
         // Modal de detalhes
         function showDetails(propertyId) {
@@ -1213,42 +1471,146 @@
                 'apto1': {
                     title: 'Apartamento 2 Dormitórios - Vila Mariana',
                     content: `
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23e2e8f0' width='400' height='300'/><rect x='50' y='100' width='300' height='150' fill='%23cbd5e0'/></svg>" style="width:100%; border-radius:10px; margin-bottom:1rem;">
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23e2e8f0' width='400' height='300'/><rect x='50' y='100' width='300' height='150' fill='%23cbd5e0'/></svg>" style="width:100%; border-radius:10px; margin-bottom:1rem; object-fit: cover; max-height: 300px;">
                         <p><strong>Preço:</strong> R$ 450.000</p>
                         <p><strong>Localização:</strong> Vila Mariana, Zona Sul - SP</p>
                         <p><strong>Metragem:</strong> 65m² úteis</p>
-                        <p><strong>Dormitórios:</strong> 2 (1 suíte)</p>
-                        <p><strong>Banheiros:</strong> 2</p>
-                        <p><strong>Vagas:</strong> 1 coberta</p>
-                        <p><strong>Condomínio:</strong> R$ 580,00</p>
-                        <p><strong>IPTU:</strong> R$ 1.200,00/ano</p>
+                        <p>Imóvel em adjudicação pela Caixa Econômica Federal em excelente estado de conservação.</p>
                         <br>
-                        <p>Imóvel retomado pela Caixa Econômica Federal em excelente estado de conservação. Prédio com academia, piscina e salão de festas.</p>
-                        <br>
-                        <a href="https://wa.me/5511989868050?text=Olá, quero mais informações sobre o Apartamento na Vila Mariana (R$ 450.000)" class="btn-whatsapp" style="display:block; text-align:center;" target="_blank">Falar no WhatsApp</a>
+                        <a href="https://wa.me/5511989868050?text=Olá, quero mais informações sobre o Apartamento na Vila Mariana" class="btn-whatsapp" style="display:block; text-align:center;" target="_blank">Falar no WhatsApp</a>
                     `
                 },
                 'sala1': {
-                    title: 'Sala Comercial - Centro',
+                    title: 'Imóvel Comercial - Edifício Camburi',
                     content: `
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23e2e8f0' width='400' height='300'/><rect x='50' y='50' width='300' height='200' fill='%23cbd5e0'/></svg>" style="width:100%; border-radius:10px; margin-bottom:1rem;">
-                        <p><strong>Preço:</strong> R$ 280.000</p>
-                        <p><strong>Localização:</strong> Centro, São Paulo - SP</p>
-                        <p><strong>Metragem:</strong> 45m²</p>
-                        <p><strong>Tipo:</strong> Comercial</p>
-                        <p><strong>Vagas:</strong> 1</p>
-                        <p><strong>Condomínio:</strong> R$ 350,00</p>
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23e2e8f0' width='400' height='300'/><rect x='50' y='50' width='300' height='200' fill='%23cbd5e0'/></svg>" style="width:100%; border-radius:10px; margin-bottom:1rem; object-fit: cover; max-height: 300px;">
+                        <p><strong>Preço Venda:</strong> R$ 934.216,92</p>
+                        <p><strong>Localização:</strong> Avenida Nove de Julho, 3147 apto 51 5º andar - Jardim Paulista, SP</p>
+                        <p><strong>Metragem:</strong> Área privativa = 169,36 m²</p>
+                        <p><strong>Vagas:</strong> 4 vagas</p>
+                        <p>Propriedade da Caixa Econômica Federal com excelente localização corporativa.</p>
                         <br>
-                        <p>Sala comercial em prédio empresarial, próximo ao metrô. Ideal para escritórios e clínicas.</p>
+                        <a href="https://wa.me/5511989868050?text=Olá, quero mais informações sobre o Edifício Camburi" class="btn-whatsapp" style="display:block; text-align:center;" target="_blank">Falar no WhatsApp</a>
+                    `
+                },
+                'terreno1': {
+                    title: 'Terreno Urbano para Incorporação - PGFN',
+                    content: `
+                        <img src="https://comprei.pgfn.gov.br/gateway/imagem/anuncio/215958" style="width:100%; border-radius:10px; margin-bottom:1rem; object-fit: cover; max-height: 300px;">
+                        <p><strong>Preço Base:</strong> R$ 37.429.000,00 (R$ 1.750,00 / m²)</p>
+                        <p><strong>Metragem:</strong> Área total de 21.388 m²</p>
+                        <p><strong>Tipo:</strong> Área para Projetos de Incorporação</p>
+                        <p>Credenciado Imobiliário na PGFN - Procuradoria Geral da Fazenda Nacional. Excelente oportunidade para investidores e incorporadoras.</p>
                         <br>
-                        <a href="https://wa.me/5511989868050?text=Olá, quero mais informações sobre a Sala Comercial no Centro (R$ 280.000)" class="btn-whatsapp" style="display:block; text-align:center;" target="_blank">Falar no WhatsApp</a>
+                        <a href="https://wa.me/5511989868050?text=Olá, quero mais informações sobre o Terreno Urbano da PGFN" class="btn-whatsapp" style="display:block; text-align:center;" target="_blank">Falar no WhatsApp</a>
+                    `
+                },
+                'pgfn1': {
+                    title: 'Terreno Plano - Vila Mazzei, Tucuruvi/SP',
+                    content: `
+                        <img src="https://comprei.pgfn.gov.br/gateway/imagem/anuncio/191507" style="width:100%; border-radius:10px; margin-bottom:1rem; object-fit: cover; max-height: 300px;">
+                        <p><strong>Preço:</strong> R$ 2.523.131,00 (Desconto de 50%)</p>
+                        <p><strong>Metragem:</strong> 4.750,00 m²</p>
+                        <p><strong>Condições:</strong> Entrada de 25% + parcelamento em até 3x.</p>
+                        <p>Oportunidade de investimento com potencial para Incorporação Imobiliária.</p>
+                        <br><a href="https://wa.me/5511989868050?text=Olá, tenho interesse no Terreno no Tucuruvi" class="btn-whatsapp" style="display:block; text-align:center;" target="_blank">Falar no WhatsApp</a>
+                    `
+                },
+                'pgfn2': {
+                    title: 'Terreno - Jd Maria Antonia Prado, Sorocaba/SP',
+                    content: `
+                        <img src="https://comprei.pgfn.gov.br/gateway/imagem/anuncio/192193" style="width:100%; border-radius:10px; margin-bottom:1rem; object-fit: cover; max-height: 300px;">
+                        <p><strong>Preço:</strong> R$ 992.210,00 (Desconto de 50%)</p>
+                        <p><strong>Metragem:</strong> 1.000,00 m²</p>
+                        <p><strong>Condições:</strong> Entrada de 25% + parcelamento em até 59x.</p>
+                        <br><a href="https://wa.me/5511989868050?text=Olá, tenho interesse no Terreno em Sorocaba" class="btn-whatsapp" style="display:block; text-align:center;" target="_blank">Falar no WhatsApp</a>
+                    `
+                },
+                'pgfn3': {
+                    title: 'Terreno Industrial - Vila Independência, SP',
+                    content: `
+                        <img src="https://comprei.pgfn.gov.br/gateway/imagem/anuncio/172801" style="width:100%; border-radius:10px; margin-bottom:1rem; object-fit: cover; max-height: 300px;">
+                        <p><strong>Preço:</strong> Aguardando definição (Sob Consulta)</p>
+                        <p><strong>Metragem:</strong> 6.906,00 m²</p>
+                        <p><strong>Condições:</strong> Entrada de 25% + parcelamento em até 59x.</p>
+                        <br><a href="https://wa.me/5511989868050?text=Olá, tenho interesse no Terreno na V. Independência" class="btn-whatsapp" style="display:block; text-align:center;" target="_blank">Falar no WhatsApp</a>
+                    `
+                },
+                'pgfn4': {
+                    title: 'Prédio Comercial/Terreno - Capão Redondo, SP',
+                    content: `
+                        <img src="https://comprei.pgfn.gov.br/gateway/imagem/anuncio/198817" style="width:100%; border-radius:10px; margin-bottom:1rem; object-fit: cover; max-height: 300px;">
+                        <p><strong>Preço:</strong> R$ 3.864.750,00 (Desconto de 50%)</p>
+                        <p><strong>Metragem:</strong> 5.153,00 m²</p>
+                        <p><strong>Condições:</strong> Entrada de 25% + parcelamento em até 59x.</p>
+                        <br><a href="https://wa.me/5511989868050?text=Olá, tenho interesse no Terreno no Capão Redondo" class="btn-whatsapp" style="display:block; text-align:center;" target="_blank">Falar no WhatsApp</a>
+                    `
+                },
+                'pgfn5': {
+                    title: 'Galpão - Vila Independência, SP',
+                    content: `
+                        <img src="https://comprei.pgfn.gov.br/gateway/imagem/anuncio/171858" style="width:100%; border-radius:10px; margin-bottom:1rem; object-fit: cover; max-height: 300px;">
+                        <p><strong>Preço:</strong> R$ 3.236.400,00 (Desconto de 50%)</p>
+                        <p><strong>Metragem:</strong> 3.236,40 m²</p>
+                        <p><strong>Condições:</strong> Entrada de 25% + parcelamento em até 59x.</p>
+                        <br><a href="https://wa.me/5511989868050?text=Olá, tenho interesse no Galpão na Rua Guamiranga" class="btn-whatsapp" style="display:block; text-align:center;" target="_blank">Falar no WhatsApp</a>
+                    `
+                },
+                'pgfn6': {
+                    title: 'Unidade Autônoma - Av. São João, Centro/SP',
+                    content: `
+                        <img src="https://comprei.pgfn.gov.br/gateway/imagem/anuncio/200368" style="width:100%; border-radius:10px; margin-bottom:1rem; object-fit: cover; max-height: 300px;">
+                        <p><strong>Preço:</strong> R$ 835.763,00 (Desconto de 50%)</p>
+                        <p><strong>Metragem:</strong> 48,31 m² (Construção)</p>
+                        <p><strong>Condições:</strong> Entrada de 25% + parcelamento em até 59x.</p>
+                        <br><a href="https://wa.me/5511989868050?text=Olá, tenho interesse na sala comercial no Centro" class="btn-whatsapp" style="display:block; text-align:center;" target="_blank">Falar no WhatsApp</a>
+                    `
+                },
+                'pgfn7': {
+                    title: 'Lajes Corporativas - Largo do Paissandu, Centro/SP',
+                    content: `
+                        <img src="https://comprei.pgfn.gov.br/gateway/imagem/anuncio/201776" style="width:100%; border-radius:10px; margin-bottom:1rem; object-fit: cover; max-height: 300px;">
+                        <p><strong>Preço:</strong> R$ 15.200.000,00 (Desconto de 50%)</p>
+                        <p><strong>Detalhes:</strong> Andares 1º ao 6º andar</p>
+                        <p><strong>Condições:</strong> Entrada de 25% + parcelamento em até 59x.</p>
+                        <br><a href="https://wa.me/5511989868050?text=Olá, tenho interesse no prédio do Lgo do Paissandu" class="btn-whatsapp" style="display:block; text-align:center;" target="_blank">Falar no WhatsApp</a>
+                    `
+                },
+                'pgfn8': {
+                    title: 'Imóvel Comercial/Terreno - Araraquara/SP',
+                    content: `
+                        <img src="https://comprei.pgfn.gov.br/gateway/imagem/anuncio/190999" style="width:100%; border-radius:10px; margin-bottom:1rem; object-fit: cover; max-height: 300px;">
+                        <p><strong>Preço:</strong> R$ 2.984.175,00 (Desconto de 50%)</p>
+                        <p><strong>Metragem:</strong> 2.617,50 m²</p>
+                        <p><strong>Condições:</strong> Entrada de 25% + parcelamento em até 30x.</p>
+                        <br><a href="https://wa.me/5511989868050?text=Olá, tenho interesse no terreno em Araraquara" class="btn-whatsapp" style="display:block; text-align:center;" target="_blank">Falar no WhatsApp</a>
+                    `
+                },
+                'pgfn9': {
+                    title: 'Imóvel Industrial/Galpão - Bady Bassitt/SP',
+                    content: `
+                        <img src="https://comprei.pgfn.gov.br/gateway/imagem/anuncio/192178" style="width:100%; border-radius:10px; margin-bottom:1rem; object-fit: cover; max-height: 300px;">
+                        <p><strong>Preço:</strong> R$ 9.088.205,50 (Desconto de 50%)</p>
+                        <p><strong>Metragem:</strong> 27.727,03 m²</p>
+                        <p><strong>Condições:</strong> Entrada de 25% + parcelamento em até 59x.</p>
+                        <br><a href="https://wa.me/5511989868050?text=Olá, tenho interesse no Galpão em Bady Bassitt" class="btn-whatsapp" style="display:block; text-align:center;" target="_blank">Falar no WhatsApp</a>
+                    `
+                },
+                'pgfn10': {
+                    title: 'Empresarial / Terreno Comercial - Piracicaba/SP',
+                    content: `
+                        <img src="https://comprei.pgfn.gov.br/gateway/imagem/anuncio/170268" style="width:100%; border-radius:10px; margin-bottom:1rem; object-fit: cover; max-height: 300px;">
+                        <p><strong>Preço:</strong> R$ 7.945.844,00 (Desconto de 50%)</p>
+                        <p><strong>Metragem:</strong> 5.074,00 m²</p>
+                        <p><strong>Condições:</strong> Entrada de 25% + parcelamento em até 59x.</p>
+                        <br><a href="https://wa.me/5511989868050?text=Olá, tenho interesse no terreno em Piracicaba" class="btn-whatsapp" style="display:block; text-align:center;" target="_blank">Falar no WhatsApp</a>
                     `
                 }
             };
             
             const detail = details[propertyId] || { 
-                title: 'Imóvel', 
-                content: '<p>Entre em contato para mais detalhes sobre este imóvel.</p><a href="https://wa.me/5511989868050" class="btn-whatsapp" style="display:block; text-align:center;" target="_blank">Falar no WhatsApp</a>' 
+                title: 'Imóvel / Avaliação', 
+                content: '<p>Entre em contato para mais detalhes sobre essa oportunidade ou solicite uma avaliação semelhante.</p><br><a href="https://wa.me/5511989868050" class="btn-whatsapp" style="display:block; text-align:center;" target="_blank">Falar no WhatsApp</a>' 
             };
             
             document.getElementById('modalTitle').textContent = detail.title;
@@ -1271,7 +1633,7 @@
         // Handle form submit
         function handleSubmit(e) {
             e.preventDefault();
-            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            alert('Sua mensagem foi enviada com sucesso! O Sr. Wagner Gabassi ou a equipe responsável retornará em breve.');
             e.target.reset();
         }
 
@@ -1315,4 +1677,3 @@
     </script>
 </body>
 </html>
-
